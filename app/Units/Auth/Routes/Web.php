@@ -3,6 +3,7 @@
 namespace App\Units\Auth\Routes;
 
 use App\Support\Http\Route;
+use \Illuminate\Support\Facades\Route as FacadeRoute;
 
 /**
  * Web Routes.
@@ -20,17 +21,19 @@ class Web extends Route
     public function routes()
     {
         // welcome
-        \Illuminate\Support\Facades\Route::get('/', function () {
-            return view('core::welcome', [
-                // 'canLogin' => \Illuminate\Support\Facades\Route::has('login'),
-                // 'canRegister' => \Illuminate\Support\Facades\Route::has('register'),
+        FacadeRoute::get('/', function () {
+            return redirect()->route(route: 'login', status: 301);
+
+            // return view('core::welcome', [
+                // 'canLogin' => Route::has('login'),
+                // 'canRegister' => Route::has('register'),
                 // 'laravelVersion' => \Illuminate\Foundation\Application::VERSION,
                 // 'phpVersion' => PHP_VERSION,
-            ]);
+            // ]);
         });
 
         // dashboard
-        \Illuminate\Support\Facades\Route::get('/dashboard', function () {
+        FacadeRoute::get('/dashboard', function () {
             return view('core::dashboard');
         })->middleware(['auth', 'verified', 'password.confirm'])->name('dashboard');
 

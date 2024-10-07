@@ -1,12 +1,9 @@
 # Changelog
-All notable changes to this project will be documented in this file.
+Todas as mudanças notáveis neste projeto serão documentadas neste arquivo.
 
-This format is based on [Keep a Changelog](https://keepachangelog.com). This project adheres to [Semantic Versioning](https://semver.org).
+Este formato é baseado em [Mantenha um Changelog](https://keepachangelog.com/pt-BR/1.0.0/).
+Este projeto adere ao [Versionamento Semântico](https://semver.org/lang/pt-BR/).
 
-## 0.1.0 - 2024-07-03
-### Added
-- Repository Pattern.
-- Repository Pattern Tests.
-
-### Changed
-- Laravel file structure for a DDD-inspired approach.
+## 0.0.1 - 2024-10-07
+### Adicionado
+- Versão inicial do projeto.

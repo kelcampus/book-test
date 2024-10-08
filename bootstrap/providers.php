@@ -19,4 +19,5 @@ return [
     App\Units\Core\Providers\UnitServiceProvider::class,
     App\Units\Profile\Providers\UnitServiceProvider::class,
     App\Units\Auth\Providers\UnitServiceProvider::class,
+    App\Units\Books\Providers\UnitServiceProvider::class,
 ];

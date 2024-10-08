@@ -2,11 +2,11 @@
 
 namespace App\Domains\Books\Models;
 
-use App\Domains\Books\Database\Factories\LivroFactory;
+use App\Domains\Books\Database\Factories\BookFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Livro extends Model
+class Book extends Model
 {
     use HasFactory;
 
@@ -28,21 +28,21 @@ class Livro extends Model
         'Valor'
     ];
 
-    public function autores()
+    public function authors()
     {
-        return $this->belongsToMany(Autor::class, 'Livro_Autor', 'Livro_Codl', 'Autor_CodAu');
+        return $this->belongsToMany(Author::class, 'Livro_Autor', 'Livro_Codl', 'Autor_CodAu');
     }
 
-    public function assuntos()
+    public function subjects()
     {
-        return $this->belongsToMany(Assunto::class, 'Livro_Assunto', 'Livro_Codl', 'Assunto_CodAs');
+        return $this->belongsToMany(Subject::class, 'Livro_Assunto', 'Livro_Codl', 'Assunto_CodAs');
     }
 
     /**
      * Create a new factory instance for the model.
      */
-    protected static function newFactory(): LivroFactory
+    protected static function newFactory(): BookFactory
     {
-        return LivroFactory::new();
+        return BookFactory::new();
     }
 }

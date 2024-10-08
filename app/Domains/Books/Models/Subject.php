@@ -2,11 +2,11 @@
 
 namespace App\Domains\Books\Models;
 
-use App\Domains\Books\Database\Factories\AssuntoFactory;
+use App\Domains\Books\Database\Factories\SubjectFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Assunto extends Model
+class Subject extends Model
 {
     use HasFactory;
 
@@ -24,14 +24,14 @@ class Assunto extends Model
         'Descricao'
     ];
 
-    public function livros()
+    public function books()
     {
         // Define a relação muitos para muitos
         return $this->belongsToMany(Livro::class, 'Livro_Assunto', 'Assunto_CodAs', 'Livro_Codl');
     }
 
-    protected static function newFactory(): AssuntoFactory
+    protected static function newFactory(): SubjectFactory
     {
-        return AssuntoFactory::new();
+        return SubjectFactory::new();
     }
 }

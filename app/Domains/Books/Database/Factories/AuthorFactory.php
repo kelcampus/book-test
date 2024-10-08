@@ -2,15 +2,15 @@
 
 namespace App\Domains\Books\Database\Factories;
 
-use App\Domains\Books\Models\Assunto;
+use App\Domains\Books\Models\Author;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Domains\Books\Models\Assunto>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Domains\Books\Models\Author>
  */
-class AssuntoFactory extends Factory
+class AuthorFactory extends Factory
 {
-    protected $model = Assunto::class;
+    protected $model = Author::class;
 
     /**
      * Define the model's default state.
@@ -20,7 +20,7 @@ class AssuntoFactory extends Factory
     public function definition(): array
     {
         return [
-            'Descricao' => fake()->sentence(3),
+            'Nome' => fake()->name,
         ];
     }
 }

@@ -27,9 +27,9 @@ class DomainServiceProvider extends ServiceProvider
      * @var array Bind contracts to implementations
      */
     public $bindings = [
-        Contracts\LivroRepository::class => Repositories\LivroRepository::class,
-        Contracts\AutorRepository::class => Repositories\AutorRepository::class,
-        Contracts\AssuntoRepository::class => Repositories\AssuntoRepository::class
+        Contracts\BookRepository::class => Repositories\BookRepository::class,
+        Contracts\AuthorRepository::class => Repositories\AuthorRepository::class,
+        Contracts\SubjectRepository::class => Repositories\SubjectRepository::class
     ];
 
     /**

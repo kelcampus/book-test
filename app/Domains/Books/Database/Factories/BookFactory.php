@@ -2,15 +2,15 @@
 
 namespace App\Domains\Books\Database\Factories;
 
-use App\Domains\Books\Models\Livro;
+use App\Domains\Books\Models\Book;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Domains\Books\Models\Livro>
  */
-class LivroFactory extends Factory
+class BookFactory extends Factory
 {
-    protected $model = Livro::class;
+    protected $model = Book::class;
 
     /**
      * Define the model's default state.

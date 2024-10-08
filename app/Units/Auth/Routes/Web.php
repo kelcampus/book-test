@@ -35,7 +35,7 @@ class Web extends Route
         // dashboard
         FacadeRoute::get('/dashboard', function () {
             return view('core::dashboard');
-        })->middleware(['auth', 'verified', 'password.confirm'])->name('dashboard');
+        })->middleware(['auth', 'password.confirm'])->name('dashboard');
 
         // Authentication routes.
         $this->authenticationRoutes();

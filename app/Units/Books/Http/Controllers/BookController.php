@@ -6,9 +6,7 @@ use App\Domains\Books\Contracts\SubjectRepository;
 use App\Support\Http\Controller;
 use App\Domains\Books\Contracts\AuthorRepository;
 use App\Domains\Books\Contracts\BookRepository;
-
 use App\Domains\Books\Models\Book;
-use App\Domains\Users\Contracts\UserRepository;
 use App\Units\Books\Http\Requests\BookRequest;
 
 class BookController extends Controller
@@ -33,30 +31,31 @@ class BookController extends Controller
     {
         $book = $bookRepository->create($request->all());
         $bookRepository->syncAuthors($book, $request->author_ids);
-        return redirect()->route('books.index')->with('status', 'Despesa criada com sucesso!');
+        $bookRepository->syncSubjects($book, $request->subject_ids);
+        return redirect()->route('books.index')->with('status', 'Livro cadastrado com sucesso!');
     }
 
-    public function edit(Book $book, UserRepository $userRepository, AuthorRepository $authorRepository)
+    public function edit(Book $book, AuthorRepository $authorRepository, SubjectRepository $subjectRepository)
     {
         return $this->view('books::book.edit', [
-            'expense' => $book,
-            'users' => $userRepository->getAll(),
-            'labels' => $authorRepository->getAll()
+            'book' => $book,
+            'authors' => $authorRepository->getAll(),
+            'subjects' => $subjectRepository->getAll()
         ]);
     }
 
     public function update(Book $book, BookRequest $request, BookRepository $bookRepository)
     {
-        $bookRepository->update($book->id, $request->all());
+        $bookRepository->update($book->Codl, $request->all());
         $bookRepository->syncAuthors($book, $request->author_ids);
-        return redirect()->route('books.index')->with('status', 'Despesa alterada com sucesso!');
+        $bookRepository->syncSubjects($book, $request->subject_ids);
+        return redirect()->route('books.index')->with('status', 'Livro alterado com sucesso!');
     }
 
     public function destroy(Book $book, BookRepository $bookRepository)
     {
-        $bookRepository->delete($book->id);
+        $bookRepository->delete($book->Codl);
         // $bookRepository->detachLabels($book);
-        return redirect()->route('books.index')->with('status', 'Despesa deletada com sucesso!');
+        return redirect()->route('books.index')->with('status', 'Livro deletado com sucesso!');
     }
-
 }

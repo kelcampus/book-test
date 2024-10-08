@@ -64,13 +64,13 @@
                                         </x-primary-button>
                                     </a>
 
-                                    <a onclick="event.preventDefault(); document.getElementById('delete-form-{{ $book->id }}').submit();">
+                                    <a onclick="event.preventDefault(); document.getElementById('delete-form-{{ $book->Codl }}').submit();">
                                         <x-danger-button class="ms-3">
                                             {{ __('Excluir') }}
                                         </x-danger-button>
                                     </a>
 
-                                    <form id="delete-form-{{$book->id}}" action="{{ route('books.destroy', ['book' => $book]) }}" method="POST" class="hide">
+                                    <form id="delete-form-{{$book->Codl}}" action="{{ route('books.destroy', ['book' => $book]) }}" method="POST" class="hide">
                                         @csrf
                                         @method('DELETE')
                                     </form>

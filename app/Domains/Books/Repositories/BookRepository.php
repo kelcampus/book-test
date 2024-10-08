@@ -15,6 +15,11 @@ class BookRepository extends CrudRepository implements BookRepositoryContract
         $book->authors()->sync($authorIds);
     }
 
+    public function syncSubjects(Book $book, array $subjectIds)
+    {
+        $book->subjects()->sync($subjectIds);
+    }
+
     // public function detachAuthors(Book $book)
     // {
     //     $book->authors()->detach();

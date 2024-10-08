@@ -16,12 +16,12 @@ class Web extends Route
 {
     public function routes()
     {
-        $this->expenseRoutes();
+        $this->bookRoutes();
     }
 
-    protected function expenseRoutes(): void
+    protected function bookRoutes(): void
     {
-        $this->router->resource('books', 'BookController')->except(['show'])->middleware('verified');
+        $this->router->resource('books', 'BookController')->except(['show']);
 
         // $this->router->get('books/statistics', 'BookStatisticController@index')->name('statistics.index');
         // $this->router->post('books/statistics', 'BookStatisticController@filter')->name('statistics.filter');

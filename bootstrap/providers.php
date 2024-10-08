@@ -10,6 +10,7 @@ return [
      * Domains
      */
     App\Domains\Users\Providers\DomainServiceProvider::class,
+    App\Domains\Books\Providers\DomainServiceProvider::class,
     //App\Domains\Jobs\Providers\DomainServiceProvider::class,
 
     /*

@@ -14,50 +14,28 @@
         <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
             <div class="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
                 <div class="overflow-hidden border border-gray-200 dark:border-gray-700 md:rounded-lg">
-                    <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
-                        <thead class="bg-gray-50 dark:bg-gray-800">
+                    <x-table>
+                        <x-slot name="header">
                             <tr>
-                                <th scope="col" class="px-12 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                                    Código
-                                </th>
-
-                                <th scope="col" class="px-12 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                                    Título
-                                </th>
-
-                                <th scope="col" class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                                    Editora
-                                </th>
-
-                                <th scope="col" class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                                    Edição
-                                </th>
-
-                                <th scope="col" class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                                    Ano de Publicação
-                                </th>
-
-                                <th scope="col" class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                                    Valor
-                                </th>
-
-                                <th scope="col" class="relative py-3.5 px-4">
-                                    <span class="sr-only">Alterar</span>
-                                </th>
+                                <x-table-th>Código</x-table-th>
+                                <x-table-th>Título</x-table-th>
+                                <x-table-th>Editora</x-table-th>
+                                <x-table-th>Edição</x-table-th>
+                                <x-table-th>Ano de Publicação</x-table-th>
+                                <x-table-th>Valor</x-table-th>
+                                <th scope="col"></th>
                             </tr>
-                        </thead>
-                        <tbody class="bg-white divide-y divide-gray-200 dark:divide-gray-700 dark:bg-gray-900">
-                            @foreach ($books as $book)
+                        </x-slot>
+
+                        @foreach ($books as $book)
                             <tr>
-                                <td class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">{{ $book->Codl }}</td>
-                                <td class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                                    {{ $book->Titulo }}
-                                </td>
-                                <td class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">{{ $book->Editora }}</td>
-                                <td class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">{{ $book->Edicao }}</td>
-                                <td class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">{{ $book->AnoPublicacao }}</td>
-                                <td class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">R$ {{ $book->Valor }}</td>
-                                <td class="px-4 py-4 text-sm whitespace-nowrap">
+                                <x-table-td>{{ $book->Codl }}</x-table-td>
+                                <x-table-td>{{ $book->Titulo }}</x-table-td>
+                                <x-table-td>{{ $book->Editora }}</x-table-td>
+                                <x-table-td>{{ $book->Edicao }}</x-table-td>
+                                <x-table-td>{{ $book->AnoPublicacao }}</x-table-td>
+                                <x-table-td>R$ {{ $book->Valor }}</x-table-td>
+                                <x-table-td class="text-right">
                                     <a href="{{ route('books.edit', ['book' => $book]) }}">
                                         <x-primary-button class="ms-3">
                                             {{ __('Editar') }}
@@ -74,12 +52,10 @@
                                         @csrf
                                         @method('DELETE')
                                     </form>
-
-                                </td>
+                                </x-table-td>
                             </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
+                        @endforeach
+                    </x-table>
                 </div>
             </div>
         </div>

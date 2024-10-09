@@ -14,51 +14,39 @@
         <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
             <div class="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
                 <div class="overflow-hidden border border-gray-200 dark:border-gray-700 md:rounded-lg">
-                    <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
-                        <thead class="bg-gray-50 dark:bg-gray-800">
+                    <x-table>
+                        <x-slot name="header">
                             <tr>
-                                <th scope="col" class="px-12 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                                    Código
-                                </th>
-
-                                <th scope="col" class="px-12 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                                    Descrição
-                                </th>
-
-                                <th scope="col" class="relative py-3.5 px-4">
-                                    <span class="sr-only">Alterar</span>
-                                </th>
+                                <x-table-th>Código</x-table-th>
+                                <x-table-th>Descrição</x-table-th>
+                                <th scope="col"></th>
                             </tr>
-                        </thead>
-                        <tbody class="bg-white divide-y divide-gray-200 dark:divide-gray-700 dark:bg-gray-900">
-                            @foreach ($subjects as $subject)
-                            <tr>
-                                <td class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">{{ $subject->CodAs }}</td>
-                                <td class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                                    {{ $subject->Descricao }}
-                                </td>
-                                <td class="px-4 py-4 text-sm whitespace-nowrap">
-                                    <a href="{{ route('subjects.edit', ['subject' => $subject]) }}">
-                                        <x-primary-button class="ms-3">
-                                            {{ __('Editar') }}
-                                        </x-primary-button>
-                                    </a>
+                        </x-slot>
+                        @foreach ($subjects as $subject)
+                        <tr>
+                            <x-table-td>{{ $subject->CodAs }}</x-table-td>
+                            <x-table-td>{{ $subject->Descricao }}</x-table-td>
+                            <x-table-td class="text-right">
+                                <a href="{{ route('subjects.edit', ['subject' => $subject]) }}">
+                                    <x-primary-button class="ms-3">
+                                        {{ __('Editar') }}
+                                    </x-primary-button>
+                                </a>
 
-                                    <a onclick="event.preventDefault(); document.getElementById('delete-form-{{ $subject->CodAs }}').submit();">
-                                        <x-danger-button class="ms-3">
-                                            {{ __('Excluir') }}
-                                        </x-danger-button>
-                                    </a>
+                                <a onclick="event.preventDefault(); document.getElementById('delete-form-{{ $subject->CodAs }}').submit();">
+                                    <x-danger-button class="ms-3">
+                                        {{ __('Excluir') }}
+                                    </x-danger-button>
+                                </a>
 
-                                    <form id="delete-form-{{$subject->CodAs}}" action="{{ route('subjects.destroy', ['subject' => $subject]) }}" method="POST" class="hide">
-                                        @csrf
-                                        @method('DELETE')
-                                    </form>
-                                </td>
-                            </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
+                                <form id="delete-form-{{$subject->CodAs}}" action="{{ route('subjects.destroy', ['subject' => $subject]) }}" method="POST" class="hide">
+                                    @csrf
+                                    @method('DELETE')
+                                </form>
+                            </x-table-td>
+                        </tr>
+                        @endforeach
+                    </x-table>
                 </div>
             </div>
         </div>

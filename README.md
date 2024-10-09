@@ -1,4 +1,4 @@
-### Laravel with a DDD-inspired approach
+### Spassu Livros
 
 - Laravel 11
 - MariaDB

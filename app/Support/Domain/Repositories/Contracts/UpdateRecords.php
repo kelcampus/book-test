@@ -11,8 +11,8 @@ interface UpdateRecords
      * Updated model data, using $data
      * The sequence performs the Model update.
      *
-     * @param \Illuminate\Database\Eloquent\Model $model
+     * @param int $id
      * @param array $data
      */
-    public function update($model, array $data = []):bool ;
+    public function update($id, array $data = []):bool ;
 }

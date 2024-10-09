@@ -12,7 +12,7 @@ class SubjectRequest extends FormRequest
         $subjectId = null === $currentSubject ? null : $currentSubject->CodAs;
 
         return [
-            'Descricao' => "required|string|min:2|max:20|unique:Assunto,Descricao,{$subjectId},CodAs",
+            'Descricao' => "required|string|min:2|max:20|unique:Assunto,Descricao,{$subjectId},CodAs|regex:/[a-zA-Z]/",
         ];
     }
 }

@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('Autor', function (Blueprint $table) {
-            $table->id('CodAu'); // Chave primária
+            $table->unsignedInteger('CodAu', autoIncrement: true);
             $table->string('Nome', 40);
         });
     }

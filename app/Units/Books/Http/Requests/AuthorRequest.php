@@ -12,7 +12,7 @@ class AuthorRequest extends FormRequest
         $authorId = null === $currentAuthor ? null : $currentAuthor->CodAu;
 
         return [
-            'Nome' => "required|string|min:2|max:40|unique:Autor,Nome,{$authorId},CodAu",
+            'Nome' => "required|string|min:2|max:40|unique:Autor,Nome,{$authorId},CodAu|regex:/[a-zA-Z]/",
         ];
     }
 }

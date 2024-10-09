@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('Assunto', function (Blueprint $table) {
             $table->id('CodAs'); // Chave primária
-            $table->string('Descricao');
+            $table->string('Descricao', 20);
         });
     }
 

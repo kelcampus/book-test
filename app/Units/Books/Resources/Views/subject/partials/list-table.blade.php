@@ -1,10 +1,10 @@
 <section class="container px-4 mx-auto">
     <div class="sm:flex sm:items-center sm:justify-between">
-        <h2 class="text-lg font-medium text-gray-800 dark:text-white">Listagem de Livros</h2>
+        <h2 class="text-lg font-medium text-gray-800 dark:text-white">Listagem de Assuntos</h2>
         <div class="flex items-center mt-4 gap-x-3">
-            <a href="{{ route('books.create') }}">
+            <a href="{{ route('subjects.create') }}">
                 <x-primary-button class="ms-3">
-                    {{ __('Adicionar Livro') }}
+                    {{ __('Adicionar Assunto') }}
                 </x-primary-button>
             </a>
         </div>
@@ -22,23 +22,7 @@
                                 </th>
 
                                 <th scope="col" class="px-12 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                                    Título
-                                </th>
-
-                                <th scope="col" class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                                    Editora
-                                </th>
-
-                                <th scope="col" class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                                    Edição
-                                </th>
-
-                                <th scope="col" class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                                    Ano de Publicação
-                                </th>
-
-                                <th scope="col" class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                                    Valor
+                                    Descrição
                                 </th>
 
                                 <th scope="col" class="relative py-3.5 px-4">
@@ -47,34 +31,29 @@
                             </tr>
                         </thead>
                         <tbody class="bg-white divide-y divide-gray-200 dark:divide-gray-700 dark:bg-gray-900">
-                            @foreach ($books as $book)
+                            @foreach ($subjects as $subject)
                             <tr>
-                                <td class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">{{ $book->Codl }}</td>
+                                <td class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">{{ $subject->CodAs }}</td>
                                 <td class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                                    {{ $book->Titulo }}
+                                    {{ $subject->Descricao }}
                                 </td>
-                                <td class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">{{ $book->Editora }}</td>
-                                <td class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">{{ $book->Edicao }}</td>
-                                <td class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">{{ $book->AnoPublicacao }}</td>
-                                <td class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">{{ $book->Valor }}</td>
                                 <td class="px-4 py-4 text-sm whitespace-nowrap">
-                                    <a href="{{ route('books.edit', ['book' => $book]) }}">
+                                    <a href="{{ route('subjects.edit', ['subject' => $subject]) }}">
                                         <x-primary-button class="ms-3">
                                             {{ __('Editar') }}
                                         </x-primary-button>
                                     </a>
 
-                                    <a onclick="event.preventDefault(); document.getElementById('delete-form-{{ $book->Codl }}').submit();">
+                                    <a onclick="event.preventDefault(); document.getElementById('delete-form-{{ $subject->CodAs }}').submit();">
                                         <x-danger-button class="ms-3">
                                             {{ __('Excluir') }}
                                         </x-danger-button>
                                     </a>
 
-                                    <form id="delete-form-{{$book->Codl}}" action="{{ route('books.destroy', ['book' => $book]) }}" method="POST" class="hide">
+                                    <form id="delete-form-{{$subject->CodAs}}" action="{{ route('subjects.destroy', ['subject' => $subject]) }}" method="POST" class="hide">
                                         @csrf
                                         @method('DELETE')
                                     </form>
-
                                 </td>
                             </tr>
                             @endforeach
@@ -85,5 +64,5 @@
         </div>
     </div>
 
-    {{ $books->links() }}
+    {{ $subjects->links() }}
 </section>

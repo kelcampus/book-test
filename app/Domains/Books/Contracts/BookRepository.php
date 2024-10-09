@@ -10,6 +10,4 @@ interface BookRepository extends CrudRepository
     public function syncAuthors(Book $book, array $authorIds);
 
     public function syncSubjects(Book $book, array $subjectIds);
-
-    //public function detachAuthors(Book $book);
 }

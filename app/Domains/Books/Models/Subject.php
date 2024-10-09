@@ -27,7 +27,7 @@ class Subject extends Model
     public function books()
     {
         // Define a relação muitos para muitos
-        return $this->belongsToMany(Livro::class, 'Livro_Assunto', 'Assunto_CodAs', 'Livro_Codl');
+        return $this->belongsToMany(Book::class, 'Livro_Assunto', 'Assunto_CodAs', 'Livro_Codl');
     }
 
     protected static function newFactory(): SubjectFactory

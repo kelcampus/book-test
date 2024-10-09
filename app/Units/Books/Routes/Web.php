@@ -17,13 +17,23 @@ class Web extends Route
     public function routes()
     {
         $this->bookRoutes();
+        $this->authorRoutes();
+        $this->subjectRoutes();
     }
 
     protected function bookRoutes(): void
     {
         $this->router->resource('books', 'BookController')->except(['show']);
+        $this->router->get('books/report', 'BookReportController@index')->name('books.report');
+    }
 
-        // $this->router->get('books/statistics', 'BookStatisticController@index')->name('statistics.index');
-        // $this->router->post('books/statistics', 'BookStatisticController@filter')->name('statistics.filter');
+    protected function authorRoutes(): void
+    {
+        $this->router->resource('authors', 'AuthorController')->except(['show']);
+    }
+
+    protected function subjectRoutes(): void
+    {
+        $this->router->resource('subjects', 'SubjectController')->except(['show']);
     }
 }

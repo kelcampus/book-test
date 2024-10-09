@@ -20,7 +20,7 @@ class AuthorFactory extends Factory
     public function definition(): array
     {
         return [
-            'Nome' => fake()->name,
+            'Nome' => fake()->name(40),
         ];
     }
 }

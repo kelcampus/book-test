@@ -20,7 +20,7 @@ class SubjectFactory extends Factory
     public function definition(): array
     {
         return [
-            'Descricao' => fake()->sentence(3),
+            'Descricao' => fake()->text(20),
         ];
     }
 }

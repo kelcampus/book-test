@@ -2,11 +2,11 @@
 
 namespace App\Units\Books\Http\Controllers;
 
-use App\Domains\Books\Contracts\SubjectRepository;
 use App\Support\Http\Controller;
-use App\Domains\Books\Contracts\AuthorRepository;
-use App\Domains\Books\Contracts\BookRepository;
 use App\Domains\Books\Models\Book;
+use App\Domains\Books\Contracts\BookRepository;
+use App\Domains\Books\Contracts\AuthorRepository;
+use App\Domains\Books\Contracts\SubjectRepository;
 use App\Units\Books\Http\Requests\BookRequest;
 
 class BookController extends Controller
@@ -32,7 +32,7 @@ class BookController extends Controller
         $book = $bookRepository->create($request->all());
         $bookRepository->syncAuthors($book, $request->author_ids);
         $bookRepository->syncSubjects($book, $request->subject_ids);
-        return redirect()->route('books.index')->with('status', 'Livro cadastrado com sucesso!');
+        return redirect()->route('books.index')->with('success', 'Livro cadastrado com sucesso!');
     }
 
     public function edit(Book $book, AuthorRepository $authorRepository, SubjectRepository $subjectRepository)
@@ -49,13 +49,14 @@ class BookController extends Controller
         $bookRepository->update($book->Codl, $request->all());
         $bookRepository->syncAuthors($book, $request->author_ids);
         $bookRepository->syncSubjects($book, $request->subject_ids);
-        return redirect()->route('books.index')->with('status', 'Livro alterado com sucesso!');
+
+        return redirect()->route('books.index')->with('success', 'Livro alterado com sucesso!');
     }
 
     public function destroy(Book $book, BookRepository $bookRepository)
     {
         $bookRepository->delete($book->Codl);
-        // $bookRepository->detachLabels($book);
-        return redirect()->route('books.index')->with('status', 'Livro deletado com sucesso!');
+
+        return redirect()->route('books.index')->with('success', 'Livro deletado com sucesso!');
     }
 }

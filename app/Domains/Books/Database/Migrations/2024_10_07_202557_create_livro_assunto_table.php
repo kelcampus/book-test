@@ -17,7 +17,7 @@ return new class extends Migration
 
             // Chaves estrangeiras
             $table->foreign('Livro_Codl')->references('Codl')->on('Livro')->onDelete('cascade');
-            $table->foreign('Assunto_CodAs')->references('CodAs')->on('Assunto')->onDelete('cascade');
+            $table->foreign('Assunto_CodAs')->references('CodAs')->on('Assunto');
         });
     }
 

@@ -29,7 +29,8 @@ class DomainServiceProvider extends ServiceProvider
     public $bindings = [
         Contracts\BookRepository::class => Repositories\BookRepository::class,
         Contracts\AuthorRepository::class => Repositories\AuthorRepository::class,
-        Contracts\SubjectRepository::class => Repositories\SubjectRepository::class
+        Contracts\SubjectRepository::class => Repositories\SubjectRepository::class,
+        Contracts\AuthorSummaryRepository::class => Repositories\AuthorSummaryRepository::class, // Database view
     ];
 
     /**

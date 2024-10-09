@@ -11,7 +11,7 @@ class BookRequest extends FormRequest
         return [
             'Titulo' => 'required|string|min:2|max:40',
             'Editora' => 'required|string|min:2|max:40',
-            'Edicao' => 'required|integer|min:1',
+            'Edicao' => 'required|integer|min:1|max:999',
             'AnoPublicacao' => 'required|string|size:4|regex:/^[0-9]{4}$/',
             'Valor' => 'required|numeric|min:0|max:99999999.99',
             'author_ids' => 'required|array',

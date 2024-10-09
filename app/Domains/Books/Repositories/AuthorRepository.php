@@ -9,4 +9,10 @@ use App\Support\Domain\Repositories\CrudRepository;
 class AuthorRepository extends CrudRepository implements AuthorRepositoryContract
 {
     protected $model = Author::class;
+
+    public function hasAssociatedBooks(Author $model): bool
+    {
+        $model->load('books');
+        return $model->books()->count() > 0;
+    }
 }

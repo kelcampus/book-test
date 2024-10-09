@@ -24,7 +24,7 @@ class Author extends Model
         'Nome'
     ];
 
-    public function livros()
+    public function books()
     {
         return $this->belongsToMany(Book::class, 'Livro_Autor', 'Autor_CodAu', 'Livro_Codl');
     }

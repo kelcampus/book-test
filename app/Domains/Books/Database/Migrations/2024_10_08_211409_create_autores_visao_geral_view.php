@@ -12,7 +12,7 @@ return new class extends Migration
     {
         if (DB::connection()->getDriverName() !== 'sqlite') {
             DB::statement("
-                CREATE VIEW spassu_livros.autores_visao_geral AS
+                CREATE VIEW autores_visao_geral AS
                 SELECT
                     a.CodAu,
                     a.Nome AS Autor,

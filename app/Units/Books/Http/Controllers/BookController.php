@@ -22,8 +22,8 @@ class BookController extends Controller
     {
         return $this->view('books::book.create', [
             'book' => app(Book::class),
-            'authors' => $authorRepository->getAll(),
-            'subjects' => $subjectRepository->getAll()
+            'authors' => $authorRepository->getAll(orderBy: ['Nome', 'asc']),
+            'subjects' => $subjectRepository->getAll(orderBy: ['Descricao', 'asc'])
         ]);
     }
 
@@ -39,8 +39,8 @@ class BookController extends Controller
     {
         return $this->view('books::book.edit', [
             'book' => $book,
-            'authors' => $authorRepository->getAll(),
-            'subjects' => $subjectRepository->getAll()
+            'authors' => $authorRepository->getAll(orderBy: ['Nome', 'asc']),
+            'subjects' => $subjectRepository->getAll(orderBy: ['Descricao', 'asc'])
         ]);
     }
 

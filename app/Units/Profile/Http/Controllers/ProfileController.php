@@ -2,6 +2,7 @@
 
 namespace App\Units\Profile\Http\Controllers;
 
+use App\Domains\Users\Models\User;
 use App\Support\Http\Controller;
 use App\Units\Profile\Http\Requests\ProfileUpdateRequest;
 use Illuminate\Http\RedirectResponse;
@@ -46,6 +47,11 @@ class ProfileController extends Controller
         $request->validateWithBag('userDeletion', [
             'password' => ['required', 'current_password'],
         ]);
+
+        // Check if the user is the last one
+        // if (User::count() <= 1) {
+        //     return redirect()->route('dashboard')->with('error', 'Você nao pode deletar o último administrador.');
+        // }
 
         $user = $request->user();
 

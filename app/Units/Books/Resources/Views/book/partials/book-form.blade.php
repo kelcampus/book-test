@@ -31,7 +31,7 @@
 
 <div>
     <x-input-label for="AnoPublicacao" :value="__('Ano Publicação')" />
-    <x-text-input type="number" id="AnoPublicacao" name="AnoPublicacao" value="{{ old('AnoPublicacao', $book->AnoPublicacao) }}" oninput="this.value = this.value.replace(/[^0-9]/g, '')" />
+    <x-text-input type="number" id="AnoPublicacao" name="AnoPublicacao" value="{{ old('AnoPublicacao', $book->AnoPublicacao) }}" oninput="this.value = this.value.replace(/[^0-9]/g, '')" placeholder="{{ \Carbon\Carbon::now()->year }}" />
     <x-input-error class="mt-2" :messages="$errors->get('AnoPublicacao')" />
 </div>
 

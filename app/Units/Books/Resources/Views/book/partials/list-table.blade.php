@@ -56,7 +56,7 @@
                                 <td class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">{{ $book->Editora }}</td>
                                 <td class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">{{ $book->Edicao }}</td>
                                 <td class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">{{ $book->AnoPublicacao }}</td>
-                                <td class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">{{ $book->Valor }}</td>
+                                <td class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">R$ {{ $book->Valor }}</td>
                                 <td class="px-4 py-4 text-sm whitespace-nowrap">
                                     <a href="{{ route('books.edit', ['book' => $book]) }}">
                                         <x-primary-button class="ms-3">

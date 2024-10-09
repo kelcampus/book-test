@@ -20,11 +20,11 @@ class BookFactory extends Factory
     public function definition(): array
     {
         return [
-            'Titulo' => fake()->name(40), // Generates a random title
-            'Editora' => fake()->company(40), // Generates a random publisher name
-            'Edicao' => fake()->numberBetween(1, 10), // Random edition number
-            'AnoPublicacao' => fake()->year, // Generates a random year
-            'Valor' => fake()->randomFloat(2, 10, 100), // Generates a random price between 10 and 100
+            'Titulo' => fake()->name(40),
+            'Editora' => fake()->company(40),
+            'Edicao' => fake()->numberBetween(1, 10),
+            'AnoPublicacao' => fake()->year,
+            'Valor' => fake()->randomFloat(2, 10, 100),
         ];
     }
 }

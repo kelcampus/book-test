@@ -13,7 +13,7 @@ class BookRequest extends FormRequest
 
         return [
             'Titulo' => 'required|string|min:2|max:40',
-            'Editora' => 'required|string|min:2|max:40',
+            'Editora' => 'required|string|min:2|max:40|regex:/[a-zA-Z]/',
             'Edicao' => "required|integer|min:1|max:999|unique:Livro,Edicao,{$bookId},Codl,Titulo,{$this->Titulo}",
             'AnoPublicacao' => 'required|integer|min:1900|max:' . date('Y'),
             'Valor' => 'required|numeric|min:0|max:99999999.99',

@@ -12,8 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('Livro_Assunto', function (Blueprint $table) {
-            $table->unsignedBigInteger('Livro_Codl');
-            $table->unsignedBigInteger('Assunto_CodAs');
+            $table->unsignedInteger('Livro_Codl');
+            $table->unsignedInteger('Assunto_CodAs');
 
             // Chaves estrangeiras
             $table->foreign('Livro_Codl')->references('Codl')->on('Livro')->onDelete('cascade');

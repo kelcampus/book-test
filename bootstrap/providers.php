@@ -10,6 +10,7 @@ return [
      * Domains
      */
     App\Domains\Users\Providers\DomainServiceProvider::class,
+    App\Domains\Books\Providers\DomainServiceProvider::class,
     //App\Domains\Jobs\Providers\DomainServiceProvider::class,
 
     /*
@@ -18,4 +19,5 @@ return [
     App\Units\Core\Providers\UnitServiceProvider::class,
     App\Units\Profile\Providers\UnitServiceProvider::class,
     App\Units\Auth\Providers\UnitServiceProvider::class,
+    App\Units\Books\Providers\UnitServiceProvider::class,
 ];

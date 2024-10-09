@@ -11,9 +11,9 @@ interface DeleteRecords
      * Run the delete command model.
      * The goal is to enable the implementation of your business logic before the command.
      *
-     * @param \Illuminate\Database\Eloquent\Model
+     * @param int $id
      *
      * @return bool
      */
-    public function delete($model);
+    public function delete($id);
 }

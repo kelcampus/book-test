@@ -1,3 +1,48 @@
+<nav class="navbar navbar-dark bg-dark navbar-expand-lg bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Livros</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link @if (request()->routeIs('dashboard'))active @endif " aria-current="page" href="{{ route('dashboard') }}">{{ __('Dashboard') }}</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link @if (request()->routeIs('books.index'))active @endif " aria-current="page" href="{{ route('books.index') }}">{{ __('Livros') }}</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link @if (request()->routeIs('authors.index'))active @endif " aria-current="page" href="{{ route('authors.index') }}">{{ __('Autores') }}</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link @if (request()->routeIs('subjects.index'))active @endif " aria-current="page" href="{{ route('subjects.index') }}">{{ __('Assuntos') }}</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link @if (request()->routeIs('books.report'))active @endif " aria-current="page" href="{{ route('books.report') }}">{{ __('Relatório') }}</a>
+          </li>
+        </ul>
+
+        <ul class="navbar-nav d-flex">
+            <li class="nav-item dropdown ">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    {{ Auth::user()->name }}
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="{{ route('profile.edit') }}">Perfil</a></li>
+                    <li>
+                        <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Sair') }}</a>
+                    </li>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                    </form>
+                </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
 <nav x-data="{ open: false }" class="bg-white dark:bg-gray-800 border-b border-gray-100 dark:border-gray-700">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
